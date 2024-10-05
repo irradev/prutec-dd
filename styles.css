@@ -1,0 +1,901 @@
+/*
+* --------------------------------------------------
+* MARK: ROOT
+* --------------------------------------------------
+*/
+:root {
+    --bg-body: #F1F1F1;
+
+    --color-primary-light: #7A98F5;
+    --color-primary: #2D4EC4;
+    --color-primary-darker: #1E3A8A;
+    --color-secondary-light: #82cf37;
+    --color-secondary: #64ac0d;
+    --color-secondary-darker: #4A8B0A;
+    --color-background: #ffffff;
+    --color-text: #1F2937;
+    --color-text-blank: #FFF;
+    --color-text-light: #6B7280;
+    --color-text-body: #2D3748;
+    --color-text-body-light: #A0AEC0;
+    --color-border: #D0D0D0;
+
+    --color-info: #0074c7;
+    --color-info-darker: #005a9e;
+    --color-info-divider: #B1D3E6;
+    --color-info-bg: #D9EAF3;
+
+    --color-danger: #FF4D4D;
+
+    --shadow-light: -1px 1px 4px 2px rgba(208, 208, 208, 0.5);
+    --shadow-medium: -1px 2px 6px 4px rgba(208, 208, 208, 0.8);
+    --shadow-small: 0px 1px 2px 1px rgba(208, 208, 208, 0.3);
+
+    /* UNITS */
+    --max-width: 1440px;
+    --py: 1.5rem;
+    --px-mobile: 1rem;
+    --px-desktop: 4rem;
+
+}
+
+
+/*
+* --------------------------------------------------
+* MARK: DARK MODE
+* --------------------------------------------------
+*/
+body.dark-mode {
+    --bg-body: #1A202C;
+    
+    --color-primary-light: #82AAFF;
+    --color-primary: #5286F3;
+    --color-primary-darker: #3661a5;
+    --color-secondary-light: #78b42a;
+    --color-secondary: #65a111;
+    --color-secondary-darker: #507a01;
+    --color-background: #2D3748;
+    --color-text: #F7FAFC;
+    --color-text-blank: #f8f8f8;
+    --color-text-light: #CBD5E0;
+    --color-text-body: #E2E8F0;
+    --color-text-body-light: #A0AEC0;
+    --color-border: #4A5568;
+
+    --color-info: #3399ff;
+    --color-info-darker: #2674cc;
+    --color-info-divider: #5A7485;
+    --color-info-bg: #2A4365;
+
+    --color-danger: #FF4D4D;
+
+    --shadow-light: -1px 1px 4px 2px rgba(31, 31, 31, 0.3);
+    --shadow-medium: -1px 2px 6px 4px rgba(92, 92, 92, 0.199);
+    --shadow-small: 0px 1px 2px 1px rgba(255, 255, 255, 0.2);
+    
+}
+
+
+/*
+* --------------------------------------------------
+* MARK: CONFIG CSS
+* --------------------------------------------------
+*/
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--color-text-body);
+	margin: 0;
+	padding: 0;
+    transition: color 0.6s ease, background-color 0.6s ease;
+}
+
+body, main { position: relative; }
+
+
+/*
+* --------------------------------------------------
+* MARK: UTILITY CLASSES
+* --------------------------------------------------
+*/
+.d-block {
+    display: block;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-md {
+    font-size: 1.2rem;
+}
+
+.text-light {
+    color: var(--color-text-light);
+}
+
+.py {
+    padding-top: var(--py);
+    padding-bottom: var(--py);
+}
+
+.px { 
+    padding-left: var(--px-mobile);
+    padding-right: var(--px-mobile);
+
+    @media (min-width: 768px) {
+        padding-left: var(--px-desktop);
+        padding-right: var(--px-desktop);
+    }
+}
+
+.opacity-0 { opacity: 0 }
+.opacity-100 { opacity: 1 }
+
+.hidden-animated {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.visible-animated {
+    transform: translateY(100%);
+    opacity: 1;
+}
+
+.section-container {
+    max-width: var(--max-width);
+    padding: var(--py) var(--px-mobile);
+    margin: 0 auto;
+
+    &.--full {
+        max-width: 100%;
+    }
+    &.--no-padding {
+        padding: 0px;
+    }
+
+    @media (min-width: 768px) {
+        padding: var(--py) var(--px-desktop);
+    }
+}
+
+/*
+* --------------------------------------------------
+* MARK: COMPONENTS
+* --------------------------------------------------
+*/
+
+/*
+* -------------------------------
+* MARK: LOGO
+* -------------------------------
+*/
+.logo-company {
+    /* background-color: tomato; */
+    display: inline-block;
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
+    position: relative;
+    transition: font-size 0.5s ease;
+
+    & > div {
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+
+        & span:first-of-type {
+            color: var(--color-text);
+            font-size: 5em;
+            font-weight: 300;
+        }
+
+        & span:nth-child(2) {
+            color: var(--color-primary);
+            font-size: 6em;
+            font-weight: 900;
+        }
+    }
+
+     & > span {
+        display: block;
+        color: var(--color-text-light);
+        font-size: 1.2em;
+        font-weight: 500;
+
+        position: absolute;
+        bottom: 0.2rem;
+        right: 0;
+     }
+
+     @media (max-width: 425px) {
+        font-size: 0.6rem;
+     }
+}
+
+
+/*
+* -------------------------------
+* MARK: BUTTON
+* -------------------------------
+*/
+button {
+    color: var( --color-text-blank);
+    border: none;
+    border-radius: 1em;
+    
+    font-size: 1rem;
+    font-weight: 600;
+    
+    padding: 0.6em 1.5em;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease,
+        transform 0.05s ease
+    ;
+
+    &.--full {
+        width: 100%;
+    }
+
+    &.--small {    
+        font-size: 0.9rem;
+        border-radius: 1.5em;
+        padding: 0.5em 1.8em;
+    }
+
+    &:active {
+        transform: translate(1px, 2px);
+    }
+    
+    &.btn-primary {
+        background-color: var(--color-primary);
+
+        &:hover {
+            background-color: var(--color-primary-darker);
+        }
+        
+    }
+
+    &.btn-secondary {
+        background-color: var(--color-secondary);
+        &:hover {
+            background-color: var(--color-secondary-darker);
+        }
+    }
+    
+    &.btn-info {
+        background-color: var(--color-info);
+        &:hover {
+            background-color: var(--color-info-darker);
+        }
+    }
+}
+
+
+/*
+* -------------------------------
+* MARK: BUTTON TOGGLE THEME
+* -------------------------------
+*/
+.btn-toggle-theme {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-body);
+    
+    font-size: 1.2rem;
+    
+    padding: 0.5em 0.6em;
+    width: 4em;
+
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+
+    & > .--dark {
+        
+    transition: transform 0.6s ease-out, opacity 0.4s ease;
+        opacity: 0.2;
+        transform: translateX(0em);
+    }
+
+    & > .--light {
+        
+    transition: transform 0.6s ease-out, opacity 0.4s ease;
+        opacity: 1;
+        transform: translateX(0em);
+    }
+}
+
+body.dark-mode {
+    color: var(--color-text-light);
+    & > .btn-toggle-theme {
+        & > .--light {
+            opacity: 0.2;
+            transform: translateX(1.6em);
+        }
+    
+        & > .--dark {
+            opacity: 1;
+            transform: translateX(-1.8em);
+        }
+    } 
+}
+
+/*
+* -------------------------------
+* MARK: CARD INFO
+* -------------------------------
+*/
+.card-info {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    background-color: var(--color-background);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-medium);
+
+    text-align: center;
+    
+    padding: 1.8rem;
+    min-width: 18rem;
+    max-width: 18rem;
+
+    transition: 
+        transform 0.3s ease, 
+        color 0.3s ease, 
+        background-color 0.3s ease
+        ;
+
+    position: relative;
+    /* overflow: hidden; */
+
+    & > i {
+        font-size: 6rem;
+        color: var(--color-primary);
+        z-index: 2;
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    & > p {
+        font-size: 1rem;
+        color: var(--color-text);
+        padding: 0px;
+        margin: 0px;
+        z-index: 2;
+        
+        transition: color 0.5s ease;
+    }
+
+    & > .--circle-element {
+        background-color: var(--color-secondary-light);
+        border-radius: 50%;
+        
+        width: 100%;
+        height: 100%;
+
+        transition: transform 0.5s ease;
+        transform: scale(0);
+        
+        position: absolute;
+        z-index: 1;
+
+    }
+
+    &:hover {
+        transform: scale(1.05);
+        background-color: transparent;
+        box-shadow: none;
+        z-index: 5;
+        /* border-radius: 50%; */
+        /* background-color: var(--color-secondary-light); */
+        & > p {
+            color: var(--color-primary);
+        }
+
+        & > i {
+            filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
+            animation: floating-icon-card-info 3s ease-in-out infinite;
+        }
+
+        & > .--circle-element {
+            transform: scale(1.3);
+        }
+    }
+
+}
+
+body.dark-mode {
+
+    & .card-info {
+
+        > .--circle-element {
+            background-color: var(--color-secondary-darker);
+        }
+
+        &:hover {
+            & > i {
+                color: var(--color-primary-light);
+            }
+
+            & > p {
+                color: var(--color-text-blank);
+            }
+        }
+    } 
+}
+
+
+/*
+* -------------------------------
+* MARK: CARD PRICE
+* -------------------------------
+*/
+.card-price {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    color: var(--color-text);
+    background-color: var(--color-info-bg);
+    border-radius: 1rem;
+
+    min-height: 13.25rem;
+    min-width: 20rem;
+    max-width: 20rem;
+
+    padding: 0.9rem;
+
+    & > .--title {
+        color: var(--color-info);
+        border-bottom: 0.13rem solid var(--color-info-divider);
+        
+        font-size: 1.5rem;
+        font-weight: 600;
+
+        text-align: center;
+        padding-bottom: 0.3rem;
+        width: 100%;
+    }
+
+    & > .--description {
+        font-size: 1.3rem;
+        font-weight: 600;
+        text-align: center;
+        margin: 0px;
+    }
+
+    & > .--price-container {
+        display: flex;
+        align-items: baseline;
+        gap: 0.3rem;
+
+        & > .--price-number {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        & > .--price-info {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+    }
+
+    & > .--features-list {
+        /* background-color: tomato; */
+        color: var(--color-text-light);
+        
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+
+
+        & > li {
+            font-size: 1rem;
+        }
+    }
+}
+
+
+/*
+* -------------------------------
+* MARK: CARD PLAIN
+* -------------------------------
+*/
+.card-plain {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+
+    background-color: transparent;
+
+    padding: 0.9rem;
+    min-width: 14rem;
+    max-width: 14rem;
+
+    & > i {
+        color: var(--color-text-blank);
+        font-size: 6rem;
+    }
+
+    & > span {
+        color: var(--color-secondary-light);
+        font-size: 1.3rem;
+        font-weight: 900;
+        letter-spacing: 0.02em;
+        margin-top: 1.2rem;
+    }
+
+    & > p {
+        color: var(--color-text-blank);
+        font-size: 1rem;
+        text-align: center;
+        padding: 0px;
+        margin: 0px;
+    }
+}
+
+/*
+* -------------------------------
+* MARK: BENEFITS LIST 
+* -------------------------------
+*/
+.benefits-list {
+    color: var(--color-text);
+
+    & > h2 {
+        font-size: 1.2rem;
+        font-weight: 900;
+        margin-top: 0px;
+        margin-left: 1.5rem;
+    }
+    
+    & > ul {
+        /* background-color: tomato; */
+        list-style-type: none;
+        padding: 0px;
+
+        & > li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+
+            & > i {
+                color: var(--color-primary);
+                font-size: 1.1rem;
+                margin-top: 0.06rem;
+            }
+
+            & span {
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
+            & p {
+                color: var(--color-text-light);
+                margin: 0.25rem 0rem 1.2rem;
+            }
+        }
+    }
+
+}
+
+
+/*
+* -------------------------------
+* MARK: MODAL BACKDROP
+* -------------------------------
+*/
+.modal-backdrop {
+    background-color: rgba(107, 114, 128, 0.75);
+
+    transition: opacity .5s ease;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    z-index: 40;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+
+/*
+* -------------------------------
+* MARK: MODAL
+* -------------------------------
+*/
+.modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: transform 0.5s ease-in-out;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: 100vh;
+    z-index: 50;
+
+    & > .modal-content {
+        background-color: var(--color-background);
+        border-radius: 0.5rem;
+        box-shadow: var(--shadow-light);
+
+        margin: 0px 0.5rem;
+        padding: 0 1.5rem 1.5rem;
+
+        width: 100%;
+        max-width: 86rem;
+
+        overflow-y: auto;
+        max-height: 80%;
+        z-index: 60;
+
+        & > .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background-color: var(--color-background);
+            border-bottom: 1px solid var(--color-border);
+            color: var(--color-text);
+            padding-top: 1rem;
+            padding-bottom: 0.75rem;
+
+            position: sticky;
+            top: 0rem;
+
+            & > h3 { 
+                margin: 0;
+                
+                @media (max-width: 520px) {
+                    text-align: center;
+                }
+            }
+            & > .button-close-modal { 
+                /* background-color: tomato; */
+                background-color: transparent;
+                color: var(--color-text-light);
+                font-size: 1.5rem;
+                padding: 0.2em 0.4em;
+
+                &:hover {
+                    background-color: var(--color-danger);
+                    color: var(--color-text-blank);
+                }
+            }
+        }
+        
+        & > .modal-body {
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 1390px) {
+            max-width: 44rem;
+        }
+    }
+}
+
+
+/*
+* --------------------------------------------------
+* MARK: CONTAINERS
+* --------------------------------------------------
+*/
+/*
+* -------------------------------
+* MARK: SECTION INFO
+* -------------------------------
+*/
+.section-info {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+
+
+    & > .card-info {
+        margin: 0 auto;
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    @media (max-width: 768px) {    
+        overflow: hidden;
+        padding-top: 2.4rem;
+        padding-bottom: 2.4rem;
+    }
+
+    @media (min-width: 520px ) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+        max-width: 775px;
+    }
+
+
+    @media (min-width: 1001px ) {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: var(--max-width);
+    }
+}
+
+
+/*
+* -------------------------------
+* MARK: SECTION BENEFITS
+* -------------------------------
+*/
+.section-benefits {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+
+    & >.--video-container {
+        flex-grow: 1;
+        position: relative;
+        padding-bottom: 320px;
+        height: 0;
+        overflow: hidden;
+        background-color: #00000067;
+        
+        & > iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+
+    & >.benefits-list {
+        flex-shrink: 0;
+        width: 50%;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column-reverse;
+        .benefits-list, .--video-container {
+            width: 100%;
+        }
+
+        .benefits-list {
+            & > h2 {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+        }
+    }
+
+}
+
+
+/*
+* -------------------------------
+* MARK: SECTION STEPS
+* -------------------------------
+*/
+.section-steps {
+    background-color: var(--color-primary-darker);
+
+    & > div {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        @media (max-width: 830px) {
+            flex-direction: column;
+            justify-content: center;
+            gap: 2rem;
+        }
+    }
+}
+
+
+/*
+* -------------------------------
+* MARK: SECTION CTAS
+* -------------------------------
+*/
+.section-ctas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    & > p {
+        font-size: 1.2rem;
+        text-align: center;
+        max-width: 30em;
+    }
+
+    & > div {
+        display: flex;
+        gap: 1.5rem;
+        width: 100%;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+}
+
+
+/*
+* -------------------------------
+* MARK: PACKS CONTAINER
+* -------------------------------
+*/
+.packs-container {
+    /* background-color: tomato; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+    @media (max-width: 1390px) {
+        
+        grid-template-columns: repeat(2, 1fr);
+        & > .card-price {
+            margin: 0 auto;
+            min-width: 100%;
+            max-width: 100%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        
+        grid-template-columns: repeat(1, 1fr);
+        & > .card-price {
+            margin: 0 auto;
+            min-width: 100%;
+            max-width: 100%;
+        }
+    }
+}
+
+/*
+* --------------------------------------------------
+* MARK: ANIMATIONS
+* --------------------------------------------------
+*/
+
+@keyframes floating-icon-card-info {
+    0% {
+    transform: scale(1.1) translateY(0px);
+    }
+    50% {
+    transform: scale(1.1) translateY(-20px);
+    }
+    100% {
+    transform: scale(1.1) translateY(0px);
+    }
+  }
