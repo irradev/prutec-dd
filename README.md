@@ -56,6 +56,10 @@ Este proyecto depende de algunos recursos cargados desde Internet:
 - **Font Awesome:** – Iconografía.
 - **YouTube Embed:** – Video informativo.
 
+## Nota
+
+Este proyecto fue desarrollado como ejercicio técnico, priorizando claridad, control total del CSS y comprensión de los fundamentos del frontend sin abstraerlos detrás de frameworks.
+
 ## Contacto
 
 No dudes en contactarme a través de los siguientes medios:
